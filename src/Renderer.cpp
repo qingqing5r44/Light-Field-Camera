@@ -1,12 +1,8 @@
-//
-// Created by goksu on 2/25/20.
-//
-
 #include <fstream>
 #include "Scene.hpp"
 #include "Renderer.hpp"
 // For uniform_int_distribution::operator()
-// #include <chrono>
+#include <chrono>
 #include <random>
 
 
@@ -38,16 +34,16 @@ void Renderer::Render(const Scene& scene, int sceneNumber)
 
             // get a uniform random number genertor using current time as seed
             // reference: http://www.cplusplus.com/reference/random/uniform_real_distribution/operator()/
-            // unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-            // std::default_random_engine generator (seed);
-            // std::uniform_int_distribution<int> distribution(0,1000);
+            ///unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+            //std::default_random_engine generator (seed);
+            //std::uniform_int_distribution<int> distribution(0,1000);
             
-            // Vector2f point = Vector2f(0.001f * distribution(generator), 0.001f * distribution(generator));
+            //Vector2f point = Vector2f(0.001f * distribution(generator), 0.001f * distribution(generator));
             double rand1 = ((double) rand() / (RAND_MAX));
             double rand2 = ((double) rand() / (RAND_MAX));
             
             Vector3f apertureOffset = Vector3f(rand1 * scene.aperture, rand2 * scene.aperture, 0.0f);
-            // Vector3f apertureOffset = Vector3f(point.x * scene.aperture, point.y * scene.aperture, 0.0f);
+            //Vector3f apertureOffset = Vector3f(point.x * scene.aperture, point.y * scene.aperture, 0.0f);
             eye_pos = eye_pos + apertureOffset;
             dir = dir * scene.focalDepth; // scale ray dir to focus at particular depth
             dir = dir - apertureOffset; 

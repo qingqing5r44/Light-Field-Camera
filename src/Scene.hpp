@@ -1,7 +1,3 @@
-//
-// Created by Göksu Güvendiren on 2019-05-14.
-//
-
 #pragma once
 
 #include <vector>
@@ -22,7 +18,7 @@ public:
     // double fov = 90;
     double fov = 120;
     Vector3f backgroundColor = Vector3f(1, 1, 1);
-    int maxDepth = 20;
+    int maxDepth = 30;
     float aperture = 0.1f; 
     int focalDepth = 8;
     Scene(int w, int h) : width(w), height(h)
